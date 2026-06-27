@@ -1,77 +1,93 @@
-const User = require("../models/User");
+const profileService = require("../services/profileService");
+const sendResponse = require("../utils/response");
 
+const getProfile = async (req, res) => {
+    try {
 
-// GET PROFILE
+        const user = await profileService.getProfile(req.user.id);
 
-exports.getProfile = async (req, res) => {
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Profile fetched successfully",
+            user
+        );
 
-  try {
+    } catch (err) {
 
-    const user = await User.findByPk(
-      req.user.id,
-      {
-        attributes: {
-          exclude: ["password"]
-        }
-      }
-    );
+        return sendResponse(
+            res,
+            404,
+            false,
+            err.message
+        );
 
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found"
-      });
     }
+};
 
-    res.status(200).json(user);
+const updateProfile = async (req, res) => {
 
-  } catch (error) {
+    try {
 
-    res.status(500).json({
-      message: error.message
-    });
+        const user = await profileService.updateProfile(
+            req.user.id,
+            req.body
+        );
 
-  }
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Profile updated successfully",
+            user
+        );
+
+    } catch (err) {
+
+        return sendResponse(
+            res,
+            400,
+            false,
+            err.message
+        );
+
+    }
 
 };
 
+const changePassword = async (req, res) => {
 
+    try {
 
-// UPDATE PROFILE
+        await profileService.changePassword(
+            req.user.id,
+            req.body.oldPassword,
+            req.body.newPassword
+        );
 
-exports.updateProfile = async (req, res) => {
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Password changed successfully"
+        );
 
-  try {
+    } catch (err) {
 
-    const { name, phone } = req.body;
-
-    const user = await User.findByPk(
-      req.user.id
-    );
-
-    if (!user) {
-
-      return res.status(404).json({
-        message: "User not found"
-      });
+        return sendResponse(
+            res,
+            400,
+            false,
+            err.message
+        );
 
     }
 
-    user.name = name || user.name;
-    user.phone = phone || user.phone;
+};
 
-    await user.save();
-
-    res.status(200).json({
-      message: "Profile Updated",
-      user
-    });
-
-  } catch (error) {
-
-    res.status(500).json({
-      message: error.message
-    });
-
-  }
-
+module.exports = {
+    getProfile,
+    updateProfile,
+    changePassword
 };
