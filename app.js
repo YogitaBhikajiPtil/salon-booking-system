@@ -36,7 +36,7 @@ app.use("/api/users", profileRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/staff", staffRoutes);
 app.use("/api/appointments", appointmentRoutes);
-app.use("/api/payments", paymentRoutes);
+app.use("/api/payments", paymentRoutes); 
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/admin", adminRoutes);
 
