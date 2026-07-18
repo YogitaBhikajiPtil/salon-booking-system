@@ -1,0 +1,214 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+.container{
+
+    width:700px;
+
+    margin:40px auto;
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:#333;
+
+    margin-bottom:30px;
+
+}
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+    color:#444;
+
+}
+
+select,
+input,
+textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+select:focus,
+input:focus,
+textarea:focus{
+
+    border-color:#4CAF50;
+
+}
+
+textarea{
+
+    resize:none;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#checkSlotsBtn{
+
+    background:#2196F3;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+#checkSlotsBtn:hover{
+
+    background:#0b7dda;
+
+}
+
+#bookBtn{
+
+    background:#4CAF50;
+
+    color:white;
+
+    margin-top:20px;
+
+}
+
+#bookBtn:hover{
+
+    background:#388E3C;
+
+}
+
+#slotsContainer{
+
+    border:1px solid #ddd;
+
+    border-radius:6px;
+
+    padding:15px;
+
+    min-height:70px;
+
+    background:#fafafa;
+
+}
+
+.slot{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px;
+
+    margin-bottom:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.slot:hover{
+
+    background:#f1f1f1;
+
+}
+
+.slot input{
+
+    width:auto;
+
+}
+
+.no-slots{
+
+    color:red;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+.success{
+
+    color:green;
+
+    font-weight:bold;
+
+}
+
+@media(max-width:768px){
+
+.container{
+
+    width:95%;
+
+    margin:20px auto;
+
+}
+
+}

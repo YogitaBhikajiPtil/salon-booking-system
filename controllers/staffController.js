@@ -1,232 +1,234 @@
-const { Staff, User, Service } = require("../models");
+const staffService = require("../services/staffService");
+const sendResponse = require("../utils/response");
 
-
-// CREATE STAFF
-
+// Create Staff
 exports.createStaff = async (req, res) => {
-
     try {
+        const staff = await staffService.createStaff(req.body);
 
-        const {
-            userId,
-            specialization,
-            availability
-        } = req.body;
-
-        const user = await User.findByPk(userId);
-
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found"
-            });
-        }
-
-        const staff = await Staff.create({
-            userId,
-            specialization,
-            availability
-        });
-
-        res.status(201).json({
-            message: "Staff Created",
+        return sendResponse(
+            res,
+            201,
+            true,
+            "Staff created successfully",
             staff
-        });
-
+        );
     } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
-
+        return sendResponse(
+            res,
+            400,
+            false,
+            error.message
+        );
     }
-
 };
 
-
-
-// GET ALL STAFF
-
+// Get All Staff
 exports.getAllStaff = async (req, res) => {
-
     try {
+        const staffs = await staffService.getAllStaff();
 
-        const staffs = await Staff.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: {
-                        exclude: ["password"]
-                    }
-                },
-                {
-                    model: Service
-                }
-            ]
-        });
-
-        res.status(200).json(staffs);
-
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Staff fetched successfully",
+            staffs
+        );
     } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
-
+        return sendResponse(
+            res,
+            500,
+            false,
+            error.message
+        );
     }
-
 };
 
-
-
-// GET SINGLE STAFF
-
+// Get Staff By ID
 exports.getStaffById = async (req, res) => {
-
     try {
+        const staff = await staffService.getStaffById(req.params.id);
 
-        const staff = await Staff.findByPk(
-            req.params.id,
-            {
-                include: [
-                    User,
-                    Service
-                ]
-            }
-        );
-
-        if (!staff) {
-
-            return res.status(404).json({
-                message: "Staff Not Found"
-            });
-
-        }
-
-        res.status(200).json(staff);
-
-    } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
-
-    }
-
-};
-
-
-
-// UPDATE STAFF
-
-exports.updateStaff = async (req, res) => {
-
-    try {
-
-        const staff = await Staff.findByPk(
-            req.params.id
-        );
-
-        if (!staff) {
-
-            return res.status(404).json({
-                message: "Staff Not Found"
-            });
-
-        }
-
-        await staff.update(req.body);
-
-        res.status(200).json({
-            message: "Staff Updated",
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Staff fetched successfully",
             staff
-        });
-
+        );
     } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
-
+        return sendResponse(
+            res,
+            404,
+            false,
+            error.message
+        );
     }
-
 };
 
-
-
-// DELETE STAFF
-
-exports.deleteStaff = async (req, res) => {
-
+// Update Staff
+exports.updateStaff = async (req, res) => {
     try {
-
-        const staff = await Staff.findByPk(
-            req.params.id
+        const staff = await staffService.updateStaff(
+            req.params.id,
+            req.body
         );
 
-        if (!staff) {
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Staff updated successfully",
+            staff
+        );
+    } catch (error) {
+        return sendResponse(
+            res,
+            400,
+            false,
+            error.message
+        );
+    }
+};
 
-            return res.status(404).json({
-                message: "Staff Not Found"
-            });
+// Delete Staff
+exports.deleteStaff = async (req, res) => {
+    try {
+        await staffService.deleteStaff(req.params.id);
 
-        }
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Staff deleted successfully"
+        );
+    } catch (error) {
+        return sendResponse(
+            res,
+            400,
+            false,
+            error.message
+        );
+    }
+};
 
-        await staff.destroy();
+// Assign Services
+exports.assignServices = async (req, res) => {
+    try {
 
-        res.status(200).json({
-            message: "Staff Deleted"
-        });
+        const { staffId, serviceIds } = req.body;
+
+        const result = await staffService.assignServices(
+            staffId,
+            serviceIds
+        );
+
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Services assigned successfully",
+            result
+        );
 
     } catch (error) {
 
-        res.status(500).json({
-            message: error.message
-        });
+        return sendResponse(
+            res,
+            400,
+            false,
+            error.message
+        );
+
+    }
+};
+
+// Add Availability
+exports.addAvailability = async (req, res) => {
+
+    try {
+
+        const availability = await staffService.addAvailability(
+            req.body
+        );
+
+        return sendResponse(
+            res,
+            201,
+            true,
+            "Availability added successfully",
+            availability
+        );
+
+    } catch (error) {
+
+        return sendResponse(
+            res,
+            400,
+            false,
+            error.message
+        );
 
     }
 
 };
 
-
-
-// ASSIGN SERVICE TO STAFF
-
-exports.assignService = async (req, res) => {
+// Get Staff Availability
+exports.getAvailability = async (req, res) => {
 
     try {
 
-        const {
-            staffId,
-            serviceId
-        } = req.body;
+        const availability = await staffService.getAvailability(
+            req.params.staffId
+        );
+
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Availability fetched successfully",
+            availability
+        );
+
+    } catch (error) {
+
+        return sendResponse(
+            res,
+            400,
+            false,
+            error.message
+        );
+
+    }
+
+};
+
+exports.getStaffByService = async (req, res) => {
+
+    try {
 
         const staff =
-            await Staff.findByPk(staffId);
+            await staffService.getStaffByService(
+                req.params.serviceId
+            );
 
-        const service =
-            await Service.findByPk(serviceId);
+        return sendResponse(
+            res,
+            200,
+            true,
+            "Staff fetched successfully",
+            staff
+        );
 
-        if (!staff || !service) {
+    } catch (err) {
 
-            return res.status(404).json({
-                message:
-                "Staff or Service Not Found"
-            });
-
-        }
-
-        await staff.addService(service);
-
-        res.status(200).json({
-            message:
-            "Service Assigned Successfully"
-        });
-
-    } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
+        return sendResponse(
+            res,
+            400,
+            false,
+            err.message
+        );
 
     }
 

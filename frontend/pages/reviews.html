@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reviews & Feedback</title>
+
+    <link rel="stylesheet" href="../assets/css/reviews.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>Reviews & Feedback</h2>
+
+        <a href="dashboard.html">⬅ Dashboard</a>
+
+    </nav>
+
+    <div class="container">
+
+        <h2>Leave a Review</h2>
+
+        <form id="reviewForm">
+
+            <label>Select Completed Appointment</label>
+
+            <select id="appointment" required>
+
+                <option value="">Select Appointment</option>
+
+            </select>
+
+            <label>Rating</label>
+
+            <select id="rating" required>
+
+                <option value="">Choose Rating</option>
+
+                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                <option value="4">⭐⭐⭐⭐ (4)</option>
+                <option value="3">⭐⭐⭐ (3)</option>
+                <option value="2">⭐⭐ (2)</option>
+                <option value="1">⭐ (1)</option>
+
+            </select>
+
+            <label>Your Review</label>
+
+            <textarea
+                id="review"
+                rows="5"
+                placeholder="Write your feedback..."
+                required></textarea>
+
+            <button type="submit">
+
+                Submit Review
+
+            </button>
+
+        </form>
+
+        <hr>
+
+        <h2>Service Reviews</h2>
+
+        <div id="reviewsContainer">
+
+        </div>
+
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+
+    <script src="../assets/js/reviews.js"></script>
+
+</body>
+
+</html>

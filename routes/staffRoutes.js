@@ -1,65 +1,77 @@
 const express = require("express");
-
 const router = express.Router();
 
-const authMiddleware =
-require("../middleware/authMiddleware");
+const staffController = require("../controllers/staffController");
 
-const adminMiddleware =
-require("../middleware/adminMiddleware");
+const authMiddleware = require("../middleware/authMiddleware");
+const admin = require("../middleware/adminMiddleware");
+
+const validateRequest = require("../middleware/validateRequest");
 
 const {
-     createStaff,
-    getAllStaff,
-    getStaffById,
-    updateStaff,
-    deleteStaff,
-    assignService
+    staffValidation
+} = require("../validators/staffValidator");
 
-} = require("../controllers/staffController");
-
-
-// GET
-
-router.get(
-    "/",
-    getAllStaff
-);
-
-router.get(
-    "/:id",
-    getStaffById
-);
-
-
-// ADMIN
-
+// Create Staff
 router.post(
     "/",
     authMiddleware,
-    adminMiddleware,
-    createStaff
+    admin,
+    staffValidation,
+    validateRequest,
+    staffController.createStaff
 );
 
+// Get All Staff
+router.get("/", staffController.getAllStaff);
+router.get(
+    "/service/:serviceId",
+    staffController.getStaffByService
+);
+
+// Get Staff By ID
+router.get("/:id", staffController.getStaffById);
+
+
+
+// Update Staff
 router.put(
     "/:id",
     authMiddleware,
-    adminMiddleware,
-    updateStaff
+    admin,
+    staffValidation,
+    validateRequest,
+    staffController.updateStaff
 );
 
+// Delete Staff
 router.delete(
     "/:id",
     authMiddleware,
-    adminMiddleware,
-    deleteStaff
+    admin,
+    staffController.deleteStaff
 );
 
+// Assign Services
 router.post(
-    "/assign-service",
+    "/assign-services",
     authMiddleware,
-    adminMiddleware,
-    assignService
+    admin,
+    staffController.assignServices
+);
+
+// Add Availability
+router.post(
+    "/availability",
+    authMiddleware,
+    admin,
+    staffController.addAvailability
+);
+
+// Get Availability
+router.get(
+    "/availability/:staffId",
+    staffController.getAvailability
 );
 
 module.exports = router;

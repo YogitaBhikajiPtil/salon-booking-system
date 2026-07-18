@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>Salon Admin Dashboard</h1>
+
+</header>
+
+<main>
+
+    <!-- ================= Staff Form ================= -->
+
+    <section class="card">
+
+        <h2>Add / Update Staff</h2>
+
+        <form id="staffForm">
+
+            <input type="hidden" id="staffId">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Staff Name"
+                required>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required>
+
+            <input
+                type="text"
+                id="phone"
+                placeholder="Phone">
+
+            <input
+                type="text"
+                id="specialization"
+                placeholder="Specialization">
+
+            <input
+                type="number"
+                id="experience"
+                placeholder="Experience (Years)">
+
+            <button type="submit">
+                Save Staff
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- ================= Staff List ================= -->
+
+    <section class="card">
+
+        <h2>Staff List</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Specialization</th>
+                    <th>Experience</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="staffTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ================= Assign Services ================= -->
+
+    <section class="card">
+
+        <h2>Assign Services</h2>
+
+        <select id="assignStaff">
+
+            <option value="">
+                Select Staff
+            </option>
+
+        </select>
+
+        <div id="serviceCheckboxes">
+
+        </div>
+
+        <button id="assignBtn">
+            Assign Services
+        </button>
+
+    </section>
+
+    <!-- ================= Availability ================= -->
+
+    <section class="card">
+
+        <h2>Staff Availability</h2>
+
+        <select id="availabilityStaff">
+
+            <option value="">
+                Select Staff
+            </option>
+
+        </select>
+
+        <select id="day">
+
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+
+        </select>
+
+        <input
+            type="time"
+            id="startTime">
+
+        <input
+            type="time"
+            id="endTime">
+
+        <button id="availabilityBtn">
+
+            Save Availability
+
+        </button>
+
+    </section>
+
+</main>
+
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>

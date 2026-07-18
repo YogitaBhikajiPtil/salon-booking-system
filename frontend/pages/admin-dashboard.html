@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="../assets/css/admin-dashboard.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>Salon Admin Dashboard</h2>
+
+        <div>
+
+            <a href="dashboard.html">Home</a>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Customers</h3>
+                <h1 id="customers">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Total Staff</h3>
+                <h1 id="staff">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Total Services</h3>
+                <h1 id="services">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Total Appointments</h3>
+                <h1 id="appointments">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <h1 id="completed">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <h1 id="pending">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Cancelled</h3>
+                <h1 id="cancelled">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Total Revenue</h3>
+                <h1 id="revenue">₹0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Average Rating</h3>
+                <h1 id="rating">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Total Reviews</h3>
+                <h1 id="reviews">0</h1>
+            </div>
+
+        </div>
+
+        <div class="table-section">
+
+            <h2>Monthly Revenue</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Month</th>
+
+                        <th>Revenue</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="monthlyRevenue">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="actions">
+
+            <a href="admin-customers.html">
+
+                <button>
+
+                    Manage Customers
+
+                </button>
+
+            </a>
+
+            <a href="admin-appointments.html">
+
+                <button>
+
+                    Manage Appointments
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+
+    <script src="../assets/js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

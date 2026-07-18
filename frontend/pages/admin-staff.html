@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management</title>
+
+    <link rel="stylesheet" href="/frontend/assets/css/admin.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Staff Management</h1>
+
+        <!-- ========================= -->
+        <!-- Add / Edit Staff Form -->
+        <!-- ========================= -->
+
+        <div class="form-container">
+
+            <h2 id="formTitle">Add Staff</h2>
+
+            <form id="staffForm">
+
+                <input type="hidden" id="staffId">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input
+                        type="text"
+                        id="phone"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Specialization</label>
+                    <input
+                        type="text"
+                        id="specialization"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Experience (Years)</label>
+                    <input
+                        type="number"
+                        id="experience"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input
+                        type="text"
+                        id="image"
+                    >
+                </div>
+
+                <div class="checkbox">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="isAvailable"
+                            checked
+                        >
+
+                        Available
+
+                    </label>
+
+                </div>
+
+                <button type="submit" id="saveBtn">
+
+                    Save Staff
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <hr>
+
+        <!-- ===================== -->
+        <!-- Staff Table -->
+        <!-- ===================== -->
+
+        <h2>All Staff</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Image</th>
+
+                    <th>Name</th>
+
+                    <th>Email</th>
+
+                    <th>Phone</th>
+
+                    <th>Specialization</th>
+
+                    <th>Experience</th>
+
+                    <th>Status</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="staffTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ======================= -->
+    <!-- Assign Services Modal -->
+    <!-- ======================= -->
+
+    <div id="serviceModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" id="closeServiceModal">&times;</span>
+
+            <h2>Assign Services</h2>
+
+            <input
+                type="hidden"
+                id="assignStaffId"
+            >
+
+            <div id="servicesList">
+
+            </div>
+
+            <button id="assignBtn">
+
+                Assign Services
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ======================== -->
+    <!-- Availability Modal -->
+    <!-- ======================== -->
+
+    <div id="availabilityModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" id="closeAvailabilityModal">&times;</span>
+
+            <h2>Staff Availability</h2>
+
+            <input
+                type="hidden"
+                id="availabilityStaffId"
+            >
+
+            <label>Day</label>
+
+            <select id="day">
+
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+                <option>Sunday</option>
+
+            </select>
+
+            <label>Start Time</label>
+
+            <input
+                type="time"
+                id="startTime"
+            >
+
+            <label>End Time</label>
+
+            <input
+                type="time"
+                id="endTime"
+            >
+
+            <button id="availabilityBtn">
+
+                Save Availability
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="/frontend/assets/js/admin-staff.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Book Appointment</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/booking.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Book Appointment</h1>
+
+        <form id="bookingForm">
+
+            <!-- Service -->
+
+            <div class="form-group">
+
+                <label>Select Service</label>
+
+                <select id="service" required>
+
+                    <option value="">
+                        Select Service
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Staff -->
+
+            <div class="form-group">
+
+                <label>Select Staff</label>
+
+                <select id="staff" required>
+
+                    <option value="">
+                        Select Staff
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Date -->
+
+            <div class="form-group">
+
+                <label>Appointment Date</label>
+
+                <input
+                    type="date"
+                    id="appointmentDate"
+                    required
+                >
+
+            </div>
+
+            <!-- Check Slots -->
+
+            <button
+                type="button"
+                id="checkSlotsBtn"
+            >
+
+                Check Available Slots
+
+            </button>
+
+            <!-- Slots -->
+
+            <div class="form-group">
+
+                <label>Available Slots</label>
+
+                <div id="slotsContainer">
+
+                    <p>
+                        Select service, staff and date first.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Notes -->
+
+            <div class="form-group">
+
+                <label>Notes</label>
+
+                <textarea
+                    id="notes"
+                    rows="4"
+                    placeholder="Optional notes..."
+                ></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                id="bookBtn"
+            >
+
+                Book Appointment
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <script src="../assets/js/booking.js"></script>
+
+</body>
+
+</html>

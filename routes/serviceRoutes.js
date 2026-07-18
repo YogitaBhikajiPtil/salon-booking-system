@@ -1,50 +1,49 @@
 const express = require("express");
-
 const router = express.Router();
 
-const authMiddleware =
-require("../middleware/authMiddleware");
+const serviceController = require("../controllers/serviceController");
 
-const adminMiddleware =
-require("../middleware/adminMiddleware");
+const auth = require("../middleware/authMiddleware");
+const admin = require("../middleware/adminMiddleware");
+
+const validateRequest = require("../middleware/validateRequest");
 
 const {
-    createService,
-    getAllServices,
-    getServiceById,
-    updateService,
-    deleteService
-} = require("../controllers/serviceController");
+    serviceValidation
+} = require("../validators/serviceValidator");
 
-
-// PUBLIC
-
-router.get("/", getAllServices);
-
-router.get("/:id", getServiceById);
-
-
-// ADMIN
-
+// Create Service
 router.post(
     "/",
-    authMiddleware,
-    adminMiddleware,
-    createService
+    auth,
+    admin,
+    serviceValidation,
+    validateRequest,
+    serviceController.createService
 );
 
+// Get All Services
+router.get("/", serviceController.getAllServices);
+
+// Get Service By ID
+router.get("/:id", serviceController.getServiceById);
+
+// Update Service
 router.put(
     "/:id",
-    authMiddleware,
-    adminMiddleware,
-    updateService
+    auth,
+    admin,
+    serviceValidation,
+    validateRequest,
+    serviceController.updateService
 );
 
+// Delete Service
 router.delete(
     "/:id",
-    authMiddleware,
-    adminMiddleware,
-    deleteService
+    auth,
+    admin,
+    serviceController.deleteService
 );
 
 module.exports = router;

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="../assets/css/profile.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>My Profile</h2>
+
+        <a href="services.html">← Back</a>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="profile-card">
+
+            <h3>Customer Profile</h3>
+
+            <form id="profileForm">
+
+                <label>Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    required>
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    readonly>
+
+                <label>Phone</label>
+
+                <input
+                    type="text"
+                    id="phone">
+
+                <label>Address</label>
+
+                <textarea
+                    id="address"
+                    rows="3"></textarea>
+
+                <label>Gender</label>
+
+                <select id="gender">
+
+                    <option value="">Select Gender</option>
+
+                    <option value="Male">Male</option>
+
+                    <option value="Female">Female</option>
+
+                    <option value="Other">Other</option>
+
+                </select>
+
+                <label>Preferences</label>
+
+                <textarea
+                    id="preferences"
+                    rows="4"
+                    placeholder="Haircut, Facial, Spa..."></textarea>
+
+                <button type="submit">
+
+                    Update Profile
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+
+    <script src="../assets/js/profile.js"></script>
+
+</body>
+
+</html>

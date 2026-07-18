@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice</title>
+</head>
+<body>
+
+<h2>Invoice Download</h2>
+
+<button onclick="downloadInvoice()">Download Invoice</button>
+
+<script>
+const BASE_URL = "http://13.233.230.164/api";
+
+function downloadInvoice() {
+    const appointmentId = localStorage.getItem("appointmentId");
+    const token = localStorage.getItem("token");
+
+    window.open(
+        `${BASE_URL}/payments/invoice/${appointmentId}?token=${token}`,
+        "_blank"
+    );
+}
+</script>
+
+</body>
+</html>

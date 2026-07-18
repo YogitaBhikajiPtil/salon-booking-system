@@ -7,21 +7,50 @@ const Staff = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
+    },
+
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
 
     specialization: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
 
-    availability: {
+    experience: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+
+    image: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: true,
+    },
+
+    isAvailable: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <h2>Salon Booking</h2>
+
+        <div>
+
+            <span id="userName"></span>
+
+            <button id="logoutBtn">Logout</button>
+
+        </div>
+
+    </nav>
+
+    <!-- Welcome -->
+
+    <section class="welcome">
+
+        <h1 id="welcomeText"></h1>
+
+        <p>
+
+            Welcome to Salon Appointment Booking System
+
+        </p>
+
+    </section>
+
+    <!-- Dashboard Cards -->
+
+    <section class="dashboard">
+
+        <div class="card">
+
+            <h2>💇 Services</h2>
+
+            <p>View all salon services</p>
+
+            <a href="services.html">
+
+                Open
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📅 Book Appointment</h2>
+
+            <p>Schedule a new appointment</p>
+
+            <a href="booking.html">
+
+                Book
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📋 My Appointments</h2>
+
+            <p>View booked appointments</p>
+
+            <a href="appointments.html">
+
+                View
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h2>👤 Profile</h2>
+
+            <p>Update your profile</p>
+
+            <a href="profile.html">
+
+                Open
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h2>⭐ Reviews</h2>
+
+            <p>Give feedback</p>
+
+            <a href="reviews.html">
+
+                Open
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+   
+    <h2>👨‍💼 Staff</h2>
+    <p id="staffText">Meet our experts</p>
+    <a id="staffLink" href="#">Open</a>
+</div>
+
+<!-- Admin Only -->
+
+<div class="card admin-card">
+
+    <h2>👥 Manage Customers</h2>
+
+    <p>View all registered customers</p>
+
+    <a href="admin-customers.html">
+
+        Open
+
+    </a>
+
+</div>
+
+<div class="card admin-card">
+
+    <h2>📅 Manage Appointments</h2>
+
+    <p>View and manage all appointments</p>
+
+    <a href="admin-appointments.html">
+
+        Open
+
+    </a>
+
+</div>
+
+    </section>
+
+    <script src="../assets/js/dashboard.js"></script>
+
+</body>
+
+</html>

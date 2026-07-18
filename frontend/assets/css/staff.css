@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+nav{
+    background:#6c63ff;
+    color:#fff;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.page-title{
+    text-align:center;
+    margin:35px 0 10px;
+    color:#333;
+    font-size:34px;
+}
+
+.page-subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:35px;
+}
+
+.staff-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    padding-bottom:40px;
+}
+
+.staff-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+    text-align:center;
+    padding:25px;
+}
+
+.staff-card:hover{
+    transform:translateY(-8px);
+}
+
+.staff-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #6c63ff;
+    margin-bottom:15px;
+}
+
+.staff-card h3{
+    color:#333;
+    margin-bottom:8px;
+}
+
+.staff-card h4{
+    color:#6c63ff;
+    margin-bottom:15px;
+}
+
+.staff-card p{
+    color:#555;
+    margin:8px 0;
+}
+
+.available{
+    display:inline-block;
+    background:#28a745;
+    color:white;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:14px;
+    margin:10px 0;
+}
+
+.unavailable{
+    display:inline-block;
+    background:#dc3545;
+    color:white;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:14px;
+    margin:10px 0;
+}
+
+.services{
+    margin-top:15px;
+    text-align:left;
+}
+
+.services h5{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.services ul{
+    list-style:none;
+}
+
+.services li{
+    background:#f5f5f5;
+    margin:6px 0;
+    padding:8px;
+    border-radius:6px;
+}
+
+.book-btn{
+    display:block;
+    width:100%;
+    margin-top:20px;
+    background:#6c63ff;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.book-btn:hover{
+    background:#4d44db;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .page-title{
+        font-size:28px;
+    }
+
+}

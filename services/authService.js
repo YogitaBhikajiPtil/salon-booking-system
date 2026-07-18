@@ -25,7 +25,8 @@ const registerUser = async (userData) => {
         name,
         email,
         password: hashedPassword,
-        phone
+        phone,
+        role:"customer"
     });
 
     return {

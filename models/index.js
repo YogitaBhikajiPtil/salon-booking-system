@@ -1,9 +1,11 @@
 const sequelize = require("../config/db");
 
+
 const User = require("./User");
 const Service = require("./Service");
 const Staff = require("./Staff");
 const StaffService = require("./StaffService");
+const StaffAvailability = require("./StaffAvailability");
 
 
 // Associations
@@ -25,5 +27,6 @@ module.exports = {
   User,
   Service,
   Staff,
-  StaffService
+  StaffService,
+  StaffAvailability
 };

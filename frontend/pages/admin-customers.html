@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Customers</title>
+
+    <link rel="stylesheet" href="../assets/css/admin-customers.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>Manage Customers</h2>
+
+        <a href="dashboard.html">⬅ Dashboard</a>
+
+    </nav>
+
+    <div class="container">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search by Name or Email">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Name</th>
+
+                    <th>Email</th>
+
+                    <th>Phone</th>
+
+                    <th>Gender</th>
+
+                    <th>Address</th>
+
+                    <th>Preferences</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="customerTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+
+    <script src="../assets/js/admin-customers.js"></script>
+
+</body>
+
+</html>

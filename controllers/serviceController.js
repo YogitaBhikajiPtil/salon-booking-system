@@ -1,163 +1,113 @@
-const Service = require("../models/Service");
-
-
-// CREATE SERVICE
+const serviceService = require("../services/serviceService");
+const sendResponse = require("../utils/response");
 
 exports.createService = async (req, res) => {
 
     try {
 
-        const {
-            serviceName,
-            description,
-            duration,
-            price
-        } = req.body;
+        const service = await serviceService.createService(req.body);
 
-        const service = await Service.create({
-            serviceName,
-            description,
-            duration,
-            price
-        });
-
-        res.status(201).json({
-            message: "Service Created",
+        sendResponse(
+            res,
+            201,
+            true,
+            "Service created successfully",
             service
-        });
+        );
 
-    } catch (error) {
+    } catch (err) {
 
-        res.status(500).json({
-            message: error.message
-        });
+        sendResponse(res,400,false,err.message);
 
     }
 
 };
-
-
-
-// GET ALL SERVICES
 
 exports.getAllServices = async (req, res) => {
 
     try {
 
-        const services = await Service.findAll();
+        const services = await serviceService.getAllServices();
 
-        res.status(200).json(services);
+        sendResponse(
+            res,
+            200,
+            true,
+            "Services fetched successfully",
+            services
+        );
 
-    } catch (error) {
+    } catch (err) {
 
-        res.status(500).json({
-            message: error.message
-        });
+        sendResponse(res,400,false,err.message);
 
     }
 
 };
-
-
-
-// GET SINGLE SERVICE
 
 exports.getServiceById = async (req, res) => {
 
     try {
 
-        const service = await Service.findByPk(
-            req.params.id
+        const service = await serviceService.getServiceById(req.params.id);
+
+        sendResponse(
+            res,
+            200,
+            true,
+            "Service fetched successfully",
+            service
         );
 
-        if (!service) {
+    } catch (err) {
 
-            return res.status(404).json({
-                message: "Service Not Found"
-            });
-
-        }
-
-        res.status(200).json(service);
-
-    } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
+        sendResponse(res,404,false,err.message);
 
     }
 
 };
-
-
-
-// UPDATE SERVICE
 
 exports.updateService = async (req, res) => {
 
     try {
 
-        const service = await Service.findByPk(
-            req.params.id
+        const service = await serviceService.updateService(
+            req.params.id,
+            req.body
         );
 
-        if (!service) {
-
-            return res.status(404).json({
-                message: "Service Not Found"
-            });
-
-        }
-
-        await service.update(req.body);
-
-        res.status(200).json({
-            message: "Service Updated",
+        sendResponse(
+            res,
+            200,
+            true,
+            "Service updated successfully",
             service
-        });
+        );
 
-    } catch (error) {
+    } catch (err) {
 
-        res.status(500).json({
-            message: error.message
-        });
+        sendResponse(res,400,false,err.message);
 
     }
 
 };
 
-
-
-// DELETE SERVICE
-
 exports.deleteService = async (req, res) => {
 
     try {
 
-        const service = await Service.findByPk(
-            req.params.id
+        await serviceService.deleteService(req.params.id);
+
+        sendResponse(
+            res,
+            200,
+            true,
+            "Service deleted successfully"
         );
 
-        if (!service) {
+    } catch (err) {
 
-            return res.status(404).json({
-                message: "Service Not Found"
-            });
-
-        }
-
-        await service.destroy();
-
-        res.status(200).json({
-            message: "Service Deleted"
-        });
-
-    } catch (error) {
-
-        res.status(500).json({
-            message: error.message
-        });
+        sendResponse(res,400,false,err.message);
 
     }
 
