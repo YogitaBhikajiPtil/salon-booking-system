@@ -5,7 +5,7 @@ const User = require("./User");
 const Service = require("./Service");
 const Staff = require("./Staff");
 const StaffService = require("./StaffService");
-const StaffAvailability = require("./StaffAvailability");
+const StaffAvailability = require("./staffAvailability");
 
 
 // Associations
