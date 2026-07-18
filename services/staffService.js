@@ -1,6 +1,6 @@
 const Staff = require("../models/Staff");
 const Service = require("../models/Service");
-const StaffAvailability = require("../models/StaffAvailability");
+const StaffAvailability = require("../models/staffAvailability");
 
 const createStaff = async (staffData) => {
     const existingStaff = await Staff.findOne({

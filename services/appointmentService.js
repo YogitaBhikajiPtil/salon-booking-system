@@ -4,7 +4,7 @@ const sequelize = require("../config/db");
 const Appointment = require("../models/Appointment");
 const Service = require("../models/Service");
 const Staff = require("../models/Staff");
-const StaffAvailability = require("../models/StaffAvailability");
+const StaffAvailability = require("../models/staffAvailability");
 const User = require("../models/User");
 const StaffService = require("../models/StaffService");
 
